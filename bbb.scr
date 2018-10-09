@@ -1,0 +1,58 @@
+[0]
+plugin_name = image_loader
+chkGrayScale = False
+inputRow = 0
+bgrpImageSource = 1
+txtFile = 
+
+[1]
+bgrpMorphologyShape = 0
+dblIter = 1.0
+bgrpMorphologyOperation = 0
+dblKSize = 5.0
+plugin_name = morphology
+inputRow = 1
+
+[2]
+plugin_name = rgb2gray
+inputRow = 2
+
+[3]
+spinTileSize = 8
+chkHue = False
+dblClipLimit = 40.0
+chkValue = True
+bgrpEqualizationMethod = 0
+plugin_name = equalize
+inputRow = 3
+chkSaturation = False
+
+[4]
+plugin_name = unsharp
+dblAmount = 0.5
+inputRow = 4
+spinKSize = 5
+
+[5]
+plugin_name = unsharp
+dblAmount = 0.5
+inputRow = 5
+spinKSize = 5
+
+[6]
+plugin_name = show_graphics_items
+inputRow = 5
+
+[7]
+L2Gradient = False
+dblScale = 1.0
+dblThreshold1 = 100.0
+dblApertureSize = 3.0
+dblThreshold2 = 200.0
+bgrpEnhanceMethod = 0
+dblKSize = 5.0
+plugin_name = edge_enhance
+dblDelta = 0.0
+inputRow = 6
+bgrpDdepth = 0
+

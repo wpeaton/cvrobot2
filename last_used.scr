@@ -1,0 +1,112 @@
+[0]
+plugin_name = image_loader
+bgrpImageSource = 0
+chkGrayScale = False
+inputRow = 0
+txtFile = P:/Engineering/Bill/code/python/temp/itest/ptest2.png
+
+[1]
+plugin_name = brightness
+dblGamma = 1.0
+inputRow = 1
+spinContrast = 0
+bgrpMethod = 0
+spinBrightness = -100
+
+[2]
+plugin_name = equalize
+spinTileSize = 8
+inputRow = 1
+chkSaturation = False
+chkValue = False
+chkHue = False
+dblClipLimit = 1.0
+bgrpEqualizationMethod = 0
+
+[3]
+plugin_name = inrange
+inputRow = 2
+spinHHI = 255
+spinHLO = 0
+spinVHI = 255
+spinSHI = 255
+spinVLO = 0
+spinSLO = 105
+
+[4]
+plugin_name = morphology
+bgrpMorphologyOperation = 0
+dblIter = 1.0
+inputRow = 3
+dblKSize = 5.0
+bgrpMorphologyShape = 0
+
+[5]
+plugin_name = morphology
+bgrpMorphologyOperation = 0
+dblIter = 2.0
+inputRow = 4
+dblKSize = 5.0
+bgrpMorphologyShape = 0
+
+[6]
+plugin_name = resize
+dblFy = 0.5
+inputRow = 1
+dblFx = 0.5
+
+[7]
+plugin_name = circles
+dblMaxRadius = 160.0
+inputRow = 2
+dblDp = 1.0
+dblMinDist = 285.0
+chkCrop = True
+dblMinRadius = 75.0
+dblParam2 = 88.0
+dblParam1 = 50.0
+bgrpBackgroundColor = 0
+
+[8]
+plugin_name = brightness
+dblGamma = 1.02
+inputRow = 3
+spinContrast = 127
+bgrpMethod = 0
+spinBrightness = 0
+
+[9]
+plugin_name = specify_target
+fname = target_0a9b9d79-e344-4492-a1a9-b2ab9d68d85f.png
+inputRow = 3
+bgrpDrawMethod = 0
+
+[10]
+plugin_name = template_match
+spinTargetRow = 5
+inputRow = 3
+bgrpMatchMethod = 5
+dblThreshold = 0.6
+spinInside = 4
+groupInRegion = False
+
+[11]
+plugin_name = specify_target
+fname = target_b59570d6-b3ec-4c5b-a25b-e6663d994309.png
+inputRow = 4
+bgrpDrawMethod = 0
+
+[12]
+plugin_name = template_match
+spinTargetRow = 7
+inputRow = 4
+bgrpMatchMethod = 5
+dblThreshold = 0.6
+spinInside = 1
+groupInRegion = False
+
+[13]
+plugin_name = show_graphics_items
+chkShowPass = True
+inputRow = 1
+

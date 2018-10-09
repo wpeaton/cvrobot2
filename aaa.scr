@@ -1,0 +1,24 @@
+[image_loader]
+inputRow = 0
+bgrpImageSource = 1
+txtFile = 
+chkGrayScale = False
+
+[morphology]
+inputRow = 1
+dblIter = 1.0
+bgrpMorphologyOperation = 0
+dblKSize = 5.0
+bgrpMorphologyShape = 0
+
+[rgb2gray]
+inputRow = 3
+
+[unsharp mask]
+spinKSize = 5
+inputRow = 6
+dblAmount = 0.5
+
+[show_graphics_items]
+inputRow = 3
+
