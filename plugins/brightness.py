@@ -132,12 +132,43 @@ class Brightness(Plugin):
                 
                 # ~ self.outputImg = np.uint8(img)
                 
-                #  ~ f = 259*(c + 255)/(255*(259-c))
-                #  ~ self.outputImg = cv.addWeighted(self.inputImg, f, self.inputImg, 0, b + 127*(1-f))
+                # ~ f = 131*(c + 127)/(127*(131-c))
+                # ~ self.outputImg = cv.addWeighted(self.inputImg, f, self.inputImg, 0, b + 127*(1-f))
                 
-                self.outputImg = cv.addWeighted(self.inputImg, c, self.inputImg, 0, b + 127*(1-b))
+                # ~ img = cv.cvtColor(self.inputImg, cv.COLOR_RGB2LUV)
                 
-                self.outputImg = cv.addWeighted(self.inputImg, 1. + c/127., self.inputImg, 0, b*2-c)
+                
+                # ~ split = cv.split(img)
+                # ~ split[0] = cv.addWeighted(split[0], 1, split[0], 0, b)
+                
+                # ~ img = cv.merge(split)
+                
+                # ~ self.outputImg = img = cv.cvtColor(img, cv.COLOR_LUV2RGB)
+                
+                if b != 0:
+                    if b > 0:
+                        shadow = b
+                        highlight = 255
+                    else:
+                        shadow = 0
+                        highlight = 255 + b
+                    alpha_b = (highlight - shadow)/255
+                    gamma_b = shadow
+                    
+                    buf = cv.addWeighted(self.inputImg, alpha_b, self.inputImg, 0, gamma_b)
+                else:
+                    buf = self.inputImg.copy()
+                
+                if c != 0:
+                    f = 131*(c + 127)/(127*(131-c))
+                    alpha_c = f
+                    gamma_c = 127*(1-f)
+                    
+                    buf = cv.addWeighted(buf, alpha_c, buf, 0, gamma_c)
+                
+                self.outputImg = buf
+                
+                # ~ self.outputImg = cv.addWeighted(self.inputImg, 1. + c/127., self.inputImg, 0, b*2-c)
                 #  ~ self.outputImg = cv.addWeighted(self.inputImg, 1. + c/127., self.inputImg, 0, b-c/254)
                 
                 

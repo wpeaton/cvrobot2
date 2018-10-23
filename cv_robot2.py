@@ -404,8 +404,10 @@ class Robot(QtWidgets.QMainWindow, form_class):
     @QtCore.pyqtSlot(bool)
     def on_btnPlay_clicked(self, checked):
         
+        self.playing = checked
+        
         if checked:
-            self.playing = True
+            # ~ self.playing = True
             # ~ self.editingLstScript = False
             
             # first some housekeeping. if we have a specify_target widget active
@@ -416,7 +418,7 @@ class Robot(QtWidgets.QMainWindow, form_class):
                 
             self.playLoop()
         else:
-            self.playing = False
+            # ~ self.playing = False
             self.editingLstScript = False
             
     @QtCore.pyqtSlot(int)
@@ -443,11 +445,13 @@ class Robot(QtWidgets.QMainWindow, form_class):
         '''
         
         startTime = time.time()
+        # ~ print('start: ', time.time())
         for row in range(self.lstScript.currentRow() + 1):
             widget = self.scriptList[row][1]
             pluginObject = self.scriptList[row][0]
             
             if row > 0:
+                # ~ print('row > 0')
                 # we expect load_image to be first operation in script
                 # for that, we don't want to preload inputImg
                                 
@@ -488,6 +492,7 @@ class Robot(QtWidgets.QMainWindow, form_class):
             
         if self.imageItem is not None:
             try:
+                # ~ pass
                 self.graphicsView.fitInView(self.imageItem.boundingRect(), Qt.KeepAspectRatio)
             except RuntimeError as e:
                 print('RuntimeError in playOne')
